@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
       password_in_the_database = @user["password"]
         if BCrypt::Password.new(password_in_the_database) == password_the_user_typed
           flash["notice"] = "Success!"
+          cookies["user_id"] = @user["id"]
           redirect_to "/companies"
         else
           flash["notice"] = "nope."
