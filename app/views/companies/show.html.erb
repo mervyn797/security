@@ -1,3 +1,4 @@
+<%if @current_user%>
 <h1><%= @company["name"] %></h1>
 
 <h2><%= @company["city"] %>, <%= @company["state"] %></h2>
@@ -22,3 +23,7 @@
 
 <p><a href="/companies/<%= @company["id"] %>/edit">Edit</a></p>
 <p><%= button_to "Delete this company", @company, :method => "delete" %></p>
+
+<% else %>
+You must be logged in.
+<% end %>

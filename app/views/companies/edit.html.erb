@@ -1,3 +1,4 @@
+<%if @current_user%>
 <h1>Edit Company</h1>
 
 <%= form_with :model => @company do |form| %>
@@ -12,4 +13,8 @@
     <%= form.text_field "state" %>
   </p>
   <%= form.submit %>
+<% end %>
+
+<% else %>
+You must be logged in.
 <% end %>
